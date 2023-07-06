@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>First Aid Handleiding voor de Politie</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Voeg hier je aangepaste stijlen toe */
+    </style>
+</head>
+<body>
+    <h1>First Aid handbook</h1>
+    
+    <div id="language-container">
+        <select id="language-select" onchange="changeLanguage()">
+            <option value="nl">Nederlands</option>
+            <option value="en">English</option>
+        </select>
+    </div>
+    
+    <div id="search-container">
+        <select id="search-select">
+            <option value="">Kies een verwonding...</option>
+            <option value="Hoofdletsel">Hoofdletsel</option>
+            <option value="Botbreuk">Botbreuk</option>
+            <option value="Brandwond">Brandwond</option>
+            <option value="Steekwond">Steekwond</option>
+            <option value="Verstuiking">Verstuiking</option>
+            <option value="Hartstilstand">Hartstilstand</option>
+            <option value="Schaafwond">Schaafwond</option>
+            <option value="Bloedneus">Bloedneus</option>
+            <!-- Voeg hier meer verwondingen toe -->
+        </select>
+        <button id="search-button">Zoeken</button>
+    </div>
+    
+    <div id="content-container">
+        <!-- Hier wordt de inhoud dynamisch ingevuld -->
+    </div>
+    
+    <script src="verwondingen.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
