@@ -180,7 +180,142 @@ var verwondingen = [
             nl: "Verdrinking kan levensbedreigend zijn. Zelfs na redding is medische hulp nodig om complicaties te voorkomen.",
             en: "Drowning can be life-threatening. Even after rescue, medical help is necessary to prevent complications."
         }
-    }
+    },
+    {
+        naam: "Verstuikte enkel",
+        beschrijving: {
+          nl: "Een letsel aan de enkel waarbij de ligamenten worden uitgerekt of gescheurd.",
+          en: "An injury to the ankle where the ligaments are stretched or torn."
+        },
+        instructies: {
+          nl: "1. Rust het geblesseerde been uit. 2. Breng ijs aan om zwelling te verminderen. 3. Gebruik een compressieverband voor ondersteuning. 4. Verhoog het been om de bloedtoevoer te verminderen.",
+          en: "1. Rest the injured leg. 2. Apply ice to reduce swelling. 3. Use a compression wrap for support. 4. Elevate the leg to reduce blood flow."
+        },
+        risico: {
+          nl: "Een verstuikte enkel kan leiden tot instabiliteit en herhaalde blessures. Fysiotherapie kan nodig zijn om volledig te herstellen.",
+          en: "A sprained ankle can lead to instability and recurrent injuries. Physical therapy may be necessary for full recovery."
+        }
+      },
+      {
+        naam: "Scheenbeenfractuur",
+        beschrijving: {
+          nl: "Een breuk in het scheenbeen, het bot aan de voorkant van het onderbeen.",
+          en: "A fracture in the shinbone, the bone at the front of the lower leg."
+        },
+        instructies: {
+          nl: "1. Stel het slachtoffer gerust. 2. Immobiliseer het gebroken been met een spalk. 3. Bel een ambulance.",
+          en: "1. Reassure the victim. 2. Immobilize the broken leg with a splint. 3. Call an ambulance."
+        },
+        risico: {
+          nl: "Scheenbeenfracturen kunnen ernstig zijn en chirurgische behandeling vereisen. Medische hulp is nodig.",
+          en: "Shinbone fractures can be serious and may require surgical treatment. Medical assistance is necessary."
+        }
+      },
+      {
+        naam: "Dislocatie van de schouder",
+        beschrijving: {
+          nl: "Het uit de kom raken van de schouder, waarbij het bot uit de gewrichtsholte schiet.",
+          en: "The displacement of the shoulder joint, where the bone pops out of the socket."
+        },
+        instructies: {
+          nl: "1. Ondersteun het gewonde arm. 2. Breng voorzichtig het bot terug in de gewrichtsholte. 3. Immobiliseer de schouder met een draagdoek. 4. Zoek medische hulp.",
+          en: "1. Support the injured arm. 2. Carefully maneuver the bone back into the socket. 3. Immobilize the shoulder with a sling. 4. Seek medical help."
+        },
+        risico: {
+          nl: "Schouderontwrichtingen kunnen pijnlijk zijn en het risico op herhaalde ontwrichtingen verhogen. Medische evaluatie is essentieel.",
+          en: "Shoulder dislocations can be painful and increase the risk of recurrent dislocations. Medical evaluation is essential."
+        }
+      },
+      {
+        naam: "Verstuikte pols",
+        beschrijving: {
+          nl: "Een letsel aan de pols waarbij de ligamenten worden uitgerekt of gescheurd.",
+          en: "An injury to the wrist where the ligaments are stretched or torn."
+        },
+        instructies: {
+          nl: "1. Rust de geblesseerde pols uit. 2. Breng ijs aan om zwelling te verminderen. 3. Gebruik een compressieverband voor ondersteuning. 4. Beperk polsbewegingen.",
+          en: "1. Rest the injured wrist. 2. Apply ice to reduce swelling. 3. Use a compression wrap for support. 4. Limit wrist movements."
+        },
+        risico: {
+          nl: "Een verstuikte pols kan pijnlijk zijn en de handfunctie beperken. Fysiotherapie kan nodig zijn voor herstel en revalidatie.",
+          en: "A sprained wrist can be painful and limit hand function. Physical therapy may be necessary for recovery and rehabilitation."
+        }
+      },
+      {
+        naam: "Kneuzing",
+        beschrijving: {
+          nl: "Een letsel waarbij de onderliggende weefsels beschadigd of gezwollen zijn, meestal als gevolg van een stomp trauma.",
+          en: "An injury where the underlying tissues are damaged or swollen, usually due to blunt trauma."
+        },
+        instructies: {
+          nl: "1. Rust het geblesseerde gebied uit. 2. Breng ijs aan om zwelling te verminderen. 3. Gebruik een drukverband indien nodig. 4. Vermijd belasting van het gebied.",
+          en: "1. Rest the injured area. 2. Apply ice to reduce swelling. 3. Use a compression bandage if necessary. 4. Avoid putting weight on the area."
+        },
+        risico: {
+          nl: "Kneuzingen kunnen pijnlijk zijn en leiden tot zwelling en blauwe plekken. Rust en tijd zijn meestal voldoende voor herstel.",
+          en: "Bruises can be painful and result in swelling and discoloration. Rest and time are usually sufficient for recovery."
+        }
+      },
+      {
+        naam: "Gescheurde meniscus",
+        beschrijving: {
+          nl: "Een scheur in het kraakbeen in de knie, meestal veroorzaakt door draaiende bewegingen of direct trauma.",
+          en: "A tear in the cartilage in the knee, usually caused by twisting movements or direct trauma."
+        },
+        instructies: {
+          nl: "1. Rust het geblesseerde been uit. 2. Breng ijs aan om zwelling te verminderen. 3. Gebruik krukken om het gewicht te verminderen. 4. Raadpleeg een arts voor verdere evaluatie.",
+          en: "1. Rest the injured leg. 2. Apply ice to reduce swelling. 3. Use crutches to reduce weight-bearing. 4. Consult a doctor for further evaluation."
+        },
+        risico: {
+          nl: "Gescheurde menisci kunnen kniepijn en instabiliteit veroorzaken. Chirurgie kan nodig zijn voor ernstige gevallen.",
+          en: "Torn menisci can cause knee pain and instability. Surgery may be necessary for severe cases."
+        }
+      },
+      {
+        naam: "Duizeligheid",
+        beschrijving: {
+          nl: "Een gevoel van desoriëntatie en het verlies van evenwicht, vaak gepaard gaande met draaierigheid.",
+          en: "A sensation of disorientation and loss of balance, often accompanied by dizziness."
+        },
+        instructies: {
+          nl: "1. Laat het slachtoffer zitten of liggen. 2. Zorg voor voldoende frisse lucht. 3. Houd het hoofd iets omhoog. 4. Raadpleeg een arts indien de symptomen aanhouden.",
+          en: "1. Have the victim sit or lie down. 2. Provide fresh air. 3. Keep the head slightly elevated. 4. Consult a doctor if the symptoms persist."
+        },
+        risico: {
+          nl: "Duizeligheid kan het gevolg zijn van verschillende oorzaken, waaronder innerlijke oorproblemen, lage bloeddruk of uitdroging. Raadpleeg een arts voor een juiste diagnose en behandeling.",
+          en: "Dizziness can result from various causes, including inner ear problems, low blood pressure, or dehydration. Consult a doctor for proper diagnosis and treatment."
+        }
+      },
+      {
+        naam: "Sleutelbeenbreuk",
+        beschrijving: {
+          nl: "Een breuk in het sleutelbeen, het bot dat het borstbeen verbindt met het schouderblad.",
+          en: "A fracture in the collarbone, the bone that connects the breastbone to the shoulder blade."
+        },
+        instructies: {
+          nl: "1. Immobiliseer de arm aan de aangedane zijde. 2. Breng een koud kompres aan om zwelling te verminderen. 3. Raadpleeg een arts voor verdere evaluatie en behandeling.",
+          en: "1. Immobilize the arm on the affected side. 2. Apply a cold compress to reduce swelling. 3. Consult a doctor for further evaluation and treatment."
+        },
+        risico: {
+          nl: "Een sleutelbeenbreuk kan pijnlijk zijn en de beweging van de arm beperken. Medische hulp kan nodig zijn om de breuk te beoordelen en de juiste behandeling toe te passen.",
+          en: "A collarbone fracture can be painful and limit arm movement. Medical assistance may be needed to assess the fracture and apply appropriate treatment."
+        }
+      },
+      {
+        naam: "Shock",
+        beschrijving: {
+          nl: "Een levensbedreigende aandoening waarbij de bloedsomloop onvoldoende zuurstof naar de organen transporteert.",
+          en: "A life-threatening condition in which the circulatory system fails to deliver enough oxygen to the organs."
+        },
+        instructies: {
+          nl: "1. Leg het slachtoffer plat neer met opgeheven benen, tenzij er sprake is van een hoofd- of nekletsel. 2. Bel onmiddellijk een ambulance. 3. Houd het slachtoffer warm en comfortabel.",
+          en: "1. Lay the victim down flat with elevated legs, unless there is a head or neck injury. 2. Call an ambulance immediately. 3. Keep the victim warm and comfortable."
+        },
+        risico: {
+          nl: "Shock kan het gevolg zijn van ernstig bloedverlies, ernstige infecties, allergische reacties of andere medische noodsituaties. Snelle medische hulp is cruciaal.",
+          en: "Shock can result from severe blood loss, severe infections, allergic reactions, or other medical emergencies. Prompt medical assistance is crucial."
+        }
+      },
 ];
 
 
@@ -193,31 +328,47 @@ languageSelect.addEventListener("change", changeLanguage);
 var searchSelect = document.getElementById("search-select");
 
 var options = {
-  nl: [
-    { value: "", text: "Kies een verwonding..." },
-    { value: "Hoofdletsel", text: "Hoofdletsel" },
-    { value: "Botbreuk", text: "Botbreuk" },
-    { value: "Brandwond", text: "Brandwond" },
-    { value: "Steekwond", text: "Steekwond" },
-    { value: "Verstuiking", text: "Verstuiking" },
-    { value: "Hartstilstand", text: "Hartstilstand" },
-    { value: "Schaafwond", text: "Schaafwond" },
-    { value: "Bloedneus", text: "Bloedneus" },
-    // Voeg hier meer verwondingen toe
-  ],
-  en: [
-    { value: "", text: "Select an injury..." },
-    { value: "Hoofdletsel", text: "Head Injury" },
-    { value: "Botbreuk", text: "Bone Fracture" },
-    { value: "Brandwond", text: "Burn" },
-    { value: "Steekwond", text: "Stab Wound" },
-    { value: "Verstuiking", text: "Sprain" },
-    { value: "Hartstilstand", text: "Cardiac Arrest" },
-    { value: "Schaafwond", text: "Abrasion" },
-    { value: "Bloedneus", text: "Nosebleed" },
-    // Voeg hier meer verwondingen toe
-  ]
-};
+    nl: [
+      { value: "", text: "Kies een verwonding..." },
+      { value: "Hoofdletsel", text: "Hoofdletsel" },
+      { value: "Botbreuk", text: "Botbreuk" },
+      { value: "Brandwond", text: "Brandwond" },
+      { value: "Steekwond", text: "Steekwond" },
+      { value: "Verstuiking", text: "Verstuiking" },
+      { value: "Hartstilstand", text: "Hartstilstand" },
+      { value: "Schaafwond", text: "Schaafwond" },
+      { value: "Bloedneus", text: "Bloedneus" },
+      { value: "Verstuikte enkel", text: "Verstuikte enkel" },
+      { value: "Scheenbeenfractuur", text: "Scheenbeenfractuur" },
+      { value: "Dislocatie van de schouder", text: "Dislocatie van de schouder" },
+      { value: "Verstuikte pols", text: "Verstuikte pols" },
+      { value: "Kneuzing", text: "Kneuzing" },
+      { value: "Gescheurde meniscus", text: "Gescheurde meniscus" },
+      { value: "Duizeligheid", text: "Duizeligheid" },
+      { value: "Sleutelbeenbreuk", text: "Sleutelbeenbreuk" },
+      { value: "Shock", text: "Shock" }
+    ],
+    en: [
+      { value: "", text: "Select an injury..." },
+      { value: "Hoofdletsel", text: "Head Injury" },
+      { value: "Botbreuk", text: "Bone Fracture" },
+      { value: "Brandwond", text: "Burn" },
+      { value: "Steekwond", text: "Stab Wound" },
+      { value: "Verstuiking", text: "Sprain" },
+      { value: "Hartstilstand", text: "Cardiac Arrest" },
+      { value: "Schaafwond", text: "Abrasion" },
+      { value: "Bloedneus", text: "Nosebleed" },
+      { value: "Ankle Sprain", text: "Ankle Sprain" },
+      { value: "Shinbone Fracture", text: "Shinbone Fracture" },
+      { value: "Shoulder Dislocation", text: "Shoulder Dislocation" },
+      { value: "Wrist Sprain", text: "Wrist Sprain" },
+      { value: "Bruise", text: "Bruise" },
+      { value: "Torn Meniscus", text: "Torn Meniscus" },
+      { value: "Dizziness", text: "Dizziness" },
+      { value: "Collarbone Fracture", text: "Collarbone Fracture" },
+      { value: "Shock", text: "Shock" }
+    ]
+  };
 
 function changeLanguage() {
   language = languageSelect.value;
@@ -267,5 +418,5 @@ function populateContent() {
   
     contentContainer.innerHTML = contentHTML;
   }
-  
+
 document.getElementById("search-button").addEventListener("click", populateContent);
