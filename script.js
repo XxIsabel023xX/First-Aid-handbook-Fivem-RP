@@ -246,29 +246,31 @@ function populateDropdown() {
 function populateContent() {
     var contentContainer = document.getElementById("content-container");
     var selectedInjury = document.getElementById("search-select").value;
-
+  
     if (selectedInjury === "") {
-        contentContainer.innerHTML = "";
-        return;
+      contentContainer.innerHTML = "";
+      return;
     }
-
+  
     var selectedInjuryData = verwondingen.find(function (injury) {
-        return injury.naam === selectedInjury;
+      return injury.naam === selectedInjury;
     });
-
+  
     var naam = selectedInjuryData.naam;
     var beschrijving = selectedInjuryData.beschrijving[language];
     var instructies = selectedInjuryData.instructies[language];
     var risico = selectedInjuryData.risico[language];
-
+  
+    var title = language === "nl" ? naam : selectedInjuryData.title[language];
+  
     var contentHTML = "<div class='verwonding'>" +
-        "<h2>" + naam + "</h2>" +
-        "<p><strong>Beschrijving:</strong> " + beschrijving + "</p>" +
-        "<p><strong>Instructies:</strong> " + instructies + "</p>" +
-        "<p><strong>Risico:</strong> " + risico + "</p>" +
-        "</div>";
-
+      "<h2>" + title + "</h2>" +
+      "<p><strong>" + (language === "nl" ? "Beschrijving" : "Description") + ":</strong> " + beschrijving + "</p>" +
+      "<p><strong>" + (language === "nl" ? "Instructies" : "Instructions") + ":</strong> " + instructies + "</p>" +
+      "<p><strong>" + (language === "nl" ? "Risico" : "Risk") + ":</strong> " + risico + "</p>" +
+      "</div>";
+  
     contentContainer.innerHTML = contentHTML;
-}
+  }
 
 document.getElementById("search-button").addEventListener("click", populateContent);
