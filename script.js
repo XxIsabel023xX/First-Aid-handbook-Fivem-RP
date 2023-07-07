@@ -203,13 +203,10 @@ var options = {
     { value: "Hartstilstand", text: "Hartstilstand" },
     { value: "Schaafwond", text: "Schaafwond" },
     { value: "Bloedneus", text: "Bloedneus" },
-    { value: "ElektrischeSchok", text: "Elektrische schok" },
-    { value: "Hitteslag", text: "Hitteslag" },
-    { value: "Oogletsel", text: "Oogletsel" },
-    { value: "Verdrinking", text: "Verdrinking" }
+    // Voeg hier meer verwondingen toe
   ],
   en: [
-    { value: "", text: "Choose an injury..." },
+    { value: "", text: "Select an injury..." },
     { value: "Hoofdletsel", text: "Head Injury" },
     { value: "Botbreuk", text: "Bone Fracture" },
     { value: "Brandwond", text: "Burn" },
@@ -218,10 +215,7 @@ var options = {
     { value: "Hartstilstand", text: "Cardiac Arrest" },
     { value: "Schaafwond", text: "Abrasion" },
     { value: "Bloedneus", text: "Nosebleed" },
-    { value: "ElektrischeSchok", text: "Electric Shock" },
-    { value: "Hitteslag", text: "Heatstroke" },
-    { value: "Oogletsel", text: "Eye Injury" },
-    { value: "Verdrinking", text: "Drowning" }
+    // Voeg hier meer verwondingen toe
   ]
 };
 
@@ -252,7 +246,7 @@ function populateContent() {
       return;
     }
   
-    var selectedInjuryData = verwondingen.find(function (injury) {
+    var selectedInjuryData = verwondingen.find(function(injury) {
       return injury.naam === selectedInjury;
     });
   
@@ -261,9 +255,10 @@ function populateContent() {
     var instructies = selectedInjuryData.instructies[language];
     var risico = selectedInjuryData.risico[language];
   
-    var title = language === "nl" ? naam : selectedInjuryData.title[language];
+    var title = language === "nl" ? naam : selectedInjuryData.beschrijving.en;
   
-    var contentHTML = "<div class='verwonding'>" +
+    var contentHTML =
+      "<div class='verwonding'>" +
       "<h2>" + title + "</h2>" +
       "<p><strong>" + (language === "nl" ? "Beschrijving" : "Description") + ":</strong> " + beschrijving + "</p>" +
       "<p><strong>" + (language === "nl" ? "Instructies" : "Instructions") + ":</strong> " + instructies + "</p>" +
@@ -272,5 +267,5 @@ function populateContent() {
   
     contentContainer.innerHTML = contentHTML;
   }
-
+  
 document.getElementById("search-button").addEventListener("click", populateContent);
