@@ -316,6 +316,21 @@ var verwondingen = [
           en: "Shock can result from severe blood loss, severe infections, allergic reactions, or other medical emergencies. Prompt medical assistance is crucial."
         }
       },
+      {
+        naam: "Schotwonden",
+        beschrijving: {
+          nl: "Verwondingen veroorzaakt door kogels die het lichaam binnendringen.",
+          en: "Injuries caused by bullets entering the body."
+        },
+        instructies: {
+          nl: "1. Zorg voor directe medische hulp. 2. Druk de wond voorzichtig af met een steriel verband. 3. Houd het slachtoffer stabiel en comfortabel.",
+          en: "1. Seek immediate medical assistance. 2. Gently apply pressure to the wound with a sterile bandage. 3. Keep the victim stable and comfortable."
+        },
+        risico: {
+          nl: "Schotwonden kunnen levensbedreigend zijn en kunnen schade veroorzaken aan vitale organen. Onmiddellijke medische evaluatie en behandeling zijn essentieel.",
+          en: "Gunshot wounds can be life-threatening and may cause damage to vital organs. Immediate medical evaluation and treatment are essential."
+        }
+      },
 ];
 
 
@@ -346,7 +361,8 @@ var options = {
       { value: "Gescheurde meniscus", text: "Gescheurde meniscus" },
       { value: "Duizeligheid", text: "Duizeligheid" },
       { value: "Sleutelbeenbreuk", text: "Sleutelbeenbreuk" },
-      { value: "Shock", text: "Shock" }
+      { value: "Shock", text: "Shock" },
+      { value: "Schotwonden", text: "Schotwonden" }
     ],
     en: [
       { value: "", text: "Select an injury..." },
@@ -358,15 +374,16 @@ var options = {
       { value: "Hartstilstand", text: "Cardiac Arrest" },
       { value: "Schaafwond", text: "Abrasion" },
       { value: "Bloedneus", text: "Nosebleed" },
-      { value: "Ankle Sprain", text: "Ankle Sprain" },
-      { value: "Shinbone Fracture", text: "Shinbone Fracture" },
-      { value: "Shoulder Dislocation", text: "Shoulder Dislocation" },
-      { value: "Wrist Sprain", text: "Wrist Sprain" },
-      { value: "Bruise", text: "Bruise" },
-      { value: "Torn Meniscus", text: "Torn Meniscus" },
-      { value: "Dizziness", text: "Dizziness" },
-      { value: "Collarbone Fracture", text: "Collarbone Fracture" },
-      { value: "Shock", text: "Shock" }
+      { value: "Verstuikte enkel", text: "Ankle Sprain" },
+      { value: "Scheenbeenfractuur", text: "Shinbone Fracture" },
+      { value: "Dislocatie van de schouder", text: "Shoulder Dislocation" },
+      { value: "Verstuikte pols", text: "Wrist Sprain" },
+      { value: "Kneuzing", text: "Bruise" },
+      { value: "Gescheurde meniscus", text: "Torn Meniscus" },
+      { value: "Duizeligheid", text: "Dizziness" },
+      { value: "Sleutelbeenbreuk", text: "Collarbone Fracture" },
+      { value: "Shock", text: "Shock" },
+      { value: "Schotwonden", text: "Shot Wound" }
     ]
   };
 

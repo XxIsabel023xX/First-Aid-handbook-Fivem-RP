@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Discord Report Generator</title>
+    <link rel="stylesheet" type="text/css" href="style3.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="page3.html">Report maker</a></li>
+                <li><a href="page2.html">Waarom deze tool?</a></li>
+                <!-- Voeg hier meer menu-items toe -->
+            </ul>
+        </div>
+        
+        <div class="container">
+            <h1>Discord Report Generator</h1>
+            
+            <div class="form-group">
+                <label>Officer Name:</label>
+                <input type="text" id="officer-name">
+            </div>
+            
+            <div class="form-group">
+                <label>Involved Officer(s):</label>
+                <textarea id="involved-officers"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Date:</label>
+                <input type="text" id="date">
+            </div>
+            
+            <div class="form-group">
+                <label>Time:</label>
+                <input type="text" id="time">
+            </div>
+            
+            <div class="form-group">
+                <label>Postal:</label>
+                <input type="text" id="postal">
+            </div>
+            
+            <div class="form-group">
+                <label>Type of Incident/Recommended Charges:</label>
+                <textarea id="incident-type"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Arrestee Name:</label>
+                <input type="text" id="arrestee-name">
+            </div>
+            
+            <div class="form-group">
+                <label>DOB:</label>
+                <input type="text" id="dob">
+            </div>
+            
+            <div class="form-group">
+                <label>Priors / Warrants:</label>
+                <textarea id="priors-warrants"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Weapons Recovered:</label>
+                <textarea id="weapons-recovered"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Force Used to Subdue:</label>
+                <textarea id="force-used"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Evidence Logged:</label>
+                <textarea id="evidence-logged"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Incident Description:</label>
+                <textarea id="incident-description"></textarea>
+            </div>
+            
+            <div class="button-container">
+                <button onclick="generateReport()">Generate Discord Report</button>
+            </div>
+            
+            <div id="report-container" style="display: none;">
+                <h2>Discord Report</h2>
+                <pre class="discord-report" id="discord-report"></pre>
+            </div>
+        </div>
+    
+        <script>
+            // Functie om de huidige datum en tijd op te halen en in te vullen
+            function getCurrentDateTime() {
+                var now = new Date();
+                var date = now.toLocaleDateString('en-US', { timeZoneName: 'short' });
+                var time = now.toLocaleTimeString('en-US', { timeZoneName: 'short' });
+                document.getElementById('date').value = date;
+                document.getElementById('time').value = time;
+            }
+            
+            // Roep de functie op bij het laden van de pagina
+            getCurrentDateTime();
+            
+            // Functie om het Discord-rapport te genereren
+            function generateReport() {
+                var officerName = document.getElementById('officer-name').value;
+                var involvedOfficers = document.getElementById('involved-officers').value;
+                var date = document.getElementById('date').value;
+                var time = document.getElementById('time').value;
+                var postal = document.getElementById('postal').value;
+                var incidentType = document.getElementById('incident-type').value;
+                var arresteeName = document.getElementById('arrestee-name').value;
+                var dob = document.getElementById('dob').value;
+                var priorsWarrants = document.getElementById('priors-warrants').value;
+                var weaponsRecovered = document.getElementById('weapons-recovered').value;
+                var forceUsed = document.getElementById('force-used').value;
+                var evidenceLogged = document.getElementById('evidence-logged').value;
+                var incidentDescription = document.getElementById('incident-description').value;
+                
+                var report = '**OFFICER NAME:** ' + officerName + '\n\n' +
+                             '-INVOLVED OFFICER(S): ' + involvedOfficers + '\n\n' +
+                             '-DATE: ' + date + '\n\n' +
+                             '-TIME: ' + time + '\n\n' +
+                             '-POSTAL: ' + postal + '\n\n' +
+                             '-TYPE OF INCIDENT/RECOMMENDED CHARGES: ' + incidentType + '\n\n' +
+                             '-ARRESTEE NAME: ' + arresteeName + '\n\n' +
+                             '-DOB: ' + dob + '\n\n' +
+                             '-PRIORS / WARRANTS: ' + priorsWarrants + '\n\n' +
+                             '-WEAPONS RECOVERED: ' + weaponsRecovered + '\n\n' +
+                             '-FORCE USED TO SUBDUE: ' + forceUsed + '\n\n' +
+                             '-EVIDENCE LOGGED: ' + evidenceLogged + '\n\n' +
+                             '-INCIDENT DESCRIPTION: ' + incidentDescription;
+                
+                document.getElementById('discord-report').textContent = report;
+                document.getElementById('report-container').style.display = 'block';
+            }
+        </script>
+</body>
+</html>

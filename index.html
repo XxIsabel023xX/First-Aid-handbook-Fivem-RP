@@ -9,14 +9,28 @@
     </style>
 </head>
 <body>
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="page3.html">Report maker</a></li>
+            <li><a href="page2.html">Waarom deze tool?</a></li>
+            <!-- Voeg hier meer menu-items toe -->
+        </ul>
+    </div>
     <h1>First Aid handbook</h1>
-    
+    <div id="disclaimer" data-nl-text=" DISCLAIMER: Deze handleiding is alleen bedoeld voor informatieve doeleinden. Het is geen vervanging voor professioneel medisch advies. Raadpleeg altijd een gekwalificeerde medische professional of bel in geval van nood het alarmnummer." data-en-text=" DISCLAIMER: handbook is for informational purposes only. It is not a substitute for professional medical advice. Always consult a qualified healthcare professional or call emergency services in case of an emergency.">
+        <p><strong>Disclaimer:</strong> Deze handleiding is alleen bedoeld voor informatieve doeleinden. Het is geen vervanging voor professioneel medisch advies. Raadpleeg altijd een gekwalificeerde medische professional of bel in geval van nood het alarmnummer.</p>
+    </div>
     <div id="language-container">
         <select id="language-select" onchange="changeLanguage()">
             <option value="nl">Nederlands</option>
             <option value="en">English</option>
         </select>
     </div>
+
+    <div id="notepad-container">
+        <textarea id="notepad"></textarea>
+      </div>
     
     <div id="search-container">
         <select id="search-select">
@@ -47,7 +61,68 @@
         <!-- Hier wordt de inhoud dynamisch ingevuld -->
     </div>
     
+    <body>
+        <div class="calculator">
+            <h2>CPR Compressie Calculator</h2>
+            
+            <div class="form-group">
+                <label for="pulse-rate">Huidige polsslag:</label>
+                <input type="number" id="pulse-rate" min="0" step="1">
+            </div>
+            
+            <div class="form-group">
+                <button onclick="calculateCompressions()">Bereken compressies</button>
+            </div>
+            
+            <div id="result" style="display: none;">
+                <p>Aantal compressies op de borst: <span id="compressions"></span></p>
+            </div>
+        </div>
+
     <script src="verwondingen.js"></script>
     <script src="script.js"></script>
+    <script>
+        const notepad = document.getElementById('notepad');
+
+        // Haal de inhoud van de notepad op uit de localStorage als deze beschikbaar is
+        if (localStorage.getItem('notepadContent')) {
+            notepad.value = localStorage.getItem('notepadContent');
+        }
+
+        // Luister naar het 'input' evenement van de notepad en sla de inhoud op in de localStorage
+        notepad.addEventListener('input', function() {
+            localStorage.setItem('notepadContent', notepad.value);
+        });
+    </script>
+    <script>
+        // Haal het notepad-element op
+        var notepad = document.getElementById("notepad");
+      
+        // Luister naar het "input" -event om notities op te slaan wanneer er wijzigingen plaatsvinden
+        notepad.addEventListener("input", function () {
+          // Sla de notities op in de lokale opslag
+          localStorage.setItem("notepadContent", notepad.value);
+        });
+      
+        // Herstel de opgeslagen notities wanneer de pagina opnieuw wordt geladen
+        window.addEventListener("load", function () {
+          // Controleer of er eerder opgeslagen notities zijn
+          if (localStorage.getItem("notepadContent")) {
+            notepad.value = localStorage.getItem("notepadContent");
+          }
+        });
+      </script>
+      <script>
+        function calculateCompressions() {
+            var pulseRate = parseInt(document.getElementById('pulse-rate').value);
+            
+            // Bereken het aantal compressies op basis van de polsslag
+            var compressions = Math.ceil(100 / pulseRate);
+            
+            // Toon het resultaat
+            document.getElementById('compressions').textContent = compressions;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
