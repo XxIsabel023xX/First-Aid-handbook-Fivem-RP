@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Discord Report Generator</title>
+    <title>PV maker</title>
     <link rel="stylesheet" type="text/css" href="style3.css">
     <style>
        
@@ -13,136 +13,162 @@
         <div class="navbar">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="page3.html">Report maker</a></li>
+                <li><a href="page3.html">PV maker</a></li>
                 <li><a href="page2.html">Waarom deze tool?</a></li>
+                <li><a href="page4.html">Dispatch</a></li>
                 <!-- Voeg hier meer menu-items toe -->
             </ul>
-        </div>
+            <div class="container">
+                <h1>PV maker</h1>
+
+                <div class="form-group">
+                    <label>Kies Omschrijving:</label>
+                    <select id="omschrijving-select">
+                        <option value="Aanhouding">Aanhouding</option>
+                        <option value="Bevindingen">Bevindingen</option>
+                        <option value="Staandehouding">Staandehouding</option>
+                        <!-- Voeg meer opties toe indien nodig -->
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Plaatsdelict:</label>
+                    <input type="text" id="Plaatsdelict">
+                </div>
+
+                <div class="form-group">
+                    <label>Naam Agent:</label>
+                    <input type="text" id="officer-name">
+                </div>
+                
+                <div class="form-group">
+                    <label>Rang Agent:</label>
+                    <input type="text" id="Rang">
+                </div>
+
+                <div class="form-group">
+                    <label>roepnummer:</label>
+                    <input type="text" id="roepnummer">
+                </div>
+
+                <div class="form-group">
+                    <label>Voornaam verdachte:</label>
+                    <input type="text" id="Vverdachte">
+                </div>
+
+                <div class="form-group">
+                    <label>achternaam verdachte:</label>
+                    <input type="text" id="Averdachte">
+                </div>
+
+                <div class="form-group">
+                    <label>Ter zake:</label>
+                    <input type="text" id="Terzake">
+                </div>
+
+                <div class="form-group">
+                    <label>Korte omschrijving:</label>
+                    <textarea id="Korteomschrijving"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Vervolg:</label>
+                    <div>
+                        <label>Aantal maanden cell:</label> 
+                        <input type="number" id="dagencell">
+                    </div>
+
+                    <div>
+                        <label>Aantal euro boete:</label> 
+                        <input type="number" id="Euroboete">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Tijd afsluiten PV:</label>
+                    <input type="time"id="pvafsluiten">
+                </div>
+
+                <!-- Voeg de rest van je formuliervelden hier toe -->
         
-        <div class="container">
-            <h1>Discord Report Generator</h1>
-            
-            <div class="form-group">
-                <label>Officer Name:</label>
-                <input type="text" id="officer-name">
-            </div>
-            
-            <div class="form-group">
-                <label>Involved Officer(s):</label>
-                <textarea id="involved-officers"></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label>Date:</label>
-                <input type="text" id="date">
-            </div>
-            
-            <div class="form-group">
-                <label>Time:</label>
-                <input type="text" id="time">
-            </div>
-            
-            <div class="form-group">
-                <label>Postal:</label>
-                <input type="text" id="postal">
-            </div>
-            
-            <div class="form-group">
-                <label>Type of Incident/Recommended Charges:</label>
-                <textarea id="incident-type"></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label>Arrestee Name:</label>
-                <input type="text" id="arrestee-name">
-            </div>
-            
-            <div class="form-group">
-                <label>DOB:</label>
-                <input type="text" id="dob">
-            </div>
-            
-            <div class="form-group">
-                <label>Priors / Warrants:</label>
-                <textarea id="priors-warrants"></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label>Weapons Recovered:</label>
-                <textarea id="weapons-recovered"></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label>Force Used to Subdue:</label>
-                <textarea id="force-used"></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label>Evidence Logged:</label>
-                <textarea id="evidence-logged"></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label>Incident Description:</label>
-                <textarea id="incident-description"></textarea>
-            </div>
-            
-            <div class="button-container">
-                <button onclick="generateReport()">Generate Discord Report</button>
-            </div>
-            
-            <div id="report-container" style="display: none;">
-                <h2>Discord Report</h2>
-                <pre class="discord-report" id="discord-report"></pre>
-            </div>
-        </div>
-    
-        <script>
-            // Functie om de huidige datum en tijd op te halen en in te vullen
-            function getCurrentDateTime() {
-                var now = new Date();
-                var date = now.toLocaleDateString('en-US', { timeZoneName: 'short' });
-                var time = now.toLocaleTimeString('en-US', { timeZoneName: 'short' });
-                document.getElementById('date').value = date;
-                document.getElementById('time').value = time;
-            }
-            
-            // Roep de functie op bij het laden van de pagina
-            getCurrentDateTime();
-            
-            // Functie om het Discord-rapport te genereren
-            function generateReport() {
-                var officerName = document.getElementById('officer-name').value;
-                var involvedOfficers = document.getElementById('involved-officers').value;
-                var date = document.getElementById('date').value;
-                var time = document.getElementById('time').value;
-                var postal = document.getElementById('postal').value;
-                var incidentType = document.getElementById('incident-type').value;
-                var arresteeName = document.getElementById('arrestee-name').value;
-                var dob = document.getElementById('dob').value;
-                var priorsWarrants = document.getElementById('priors-warrants').value;
-                var weaponsRecovered = document.getElementById('weapons-recovered').value;
-                var forceUsed = document.getElementById('force-used').value;
-                var evidenceLogged = document.getElementById('evidence-logged').value;
-                var incidentDescription = document.getElementById('incident-description').value;
+                <div class="button-container">
+                    <button onclick="generateReport()">Maak het PV op</button>
+                </div>
                 
-                var report = '**OFFICER NAME:** ' + officerName + '\n\n' +
-                             '-INVOLVED OFFICER(S): ' + involvedOfficers + '\n\n' +
-                             '-DATE: ' + date + '\n\n' +
-                             '-TIME: ' + time + '\n\n' +
-                             '-POSTAL: ' + postal + '\n\n' +
-                             '-TYPE OF INCIDENT/RECOMMENDED CHARGES: ' + incidentType + '\n\n' +
-                             '-ARRESTEE NAME: ' + arresteeName + '\n\n' +
-                             '-DOB: ' + dob + '\n\n' +
-                             '-PRIORS / WARRANTS: ' + priorsWarrants + '\n\n' +
-                             '-WEAPONS RECOVERED: ' + weaponsRecovered + '\n\n' +
-                             '-FORCE USED TO SUBDUE: ' + forceUsed + '\n\n' +
-                             '-EVIDENCE LOGGED: ' + evidenceLogged + '\n\n' +
-                             '-INCIDENT DESCRIPTION: ' + incidentDescription;
-                
-                document.getElementById('discord-report').textContent = report;
-                document.getElementById('report-container').style.display = 'block';
-            }
-        </script>
-</body>
+                <div id="report-container" style="display: none;">
+                    <h2>Discord Report</h2>
+                    <pre class="discord-report" id="discord-report"></pre>
+                </div>
+            </div>
+        
+            <script>
+                // Functie om de huidige datum en tijd op te halen en in te vullen
+                function getCurrentDateTime() {
+                    var now = new Date();
+                    var date = now.toLocaleDateString('en-US', { timeZoneName: 'short' });
+                    var time = now.toLocaleTimeString('en-US', { timeZoneName: 'short' });
+                    document.getElementById('date').value = date;
+                    document.getElementById('time').value = time;
+                }
+        
+                // Roep de functie op bij het laden van de pagina
+                getCurrentDateTime();
+        
+                // Functie om het Discord-rapport te genereren
+                function generateReport() {
+                    // Haal de waarden op van de formuliervelden
+                    var officerName = document.getElementById('officer-name').value;
+                    var Rang = document.getElementById('Rang').value;
+                    var Vverdachte = document.getElementById('Vverdachte').value;
+                    var Averdachte = document.getElementById('Averdachte').value;
+                    var Terzake = document.getElementById('Terzake').value;
+                    var Plaatsdelict = document.getElementById('Plaatsdelict').value;
+                    var Korteomschrijving = document.getElementById('Korteomschrijving').value;
+                    var dagencell = document.getElementById('dagencell').value;
+                    var Euroboete = document.getElementById('Euroboete').value;
+                    var roepnummer = document.getElementById('roepnummer').value;
+                    var pvafsluiten = document.getElementById('pvafsluiten').value;
+                    var selectedOmschrijving = document.getElementById('omschrijving-select').value;
+        
+                    // Voeg hier de rest van de formuliervelden toe
+                    var now = new Date();
+                    var date = now.toLocaleDateString('nl-NL');
+                    var time = now.toLocaleTimeString('nl-NL');
+        
+                    // Haal de tekst onder de HTML op
+                    var textUnderHTML = `
+        P R O C E S - V E R B A A L
+        
+        Omschrijving ${selectedOmschrijving}
+        
+        Plaats Delict  : ${Plaatsdelict}
+        
+        Pleegdatum/tijd  : op ${date} omstreek ${time}
+        
+        Ik, verbalisant, ${officerName}, ${Rang} van Politie-Eenheid Los Santos, verklaar het volgende:
+        
+        Op heterdaad nog (niet) aangehouden de verdachte:
+        Achternaam             : ${Averdachte}
+        Voornamen              : ${Vverdachte}
+        
+        Ter zake : ${Terzake}
+        
+        Korte omschrijving: ${Korteomschrijving}
+        
+        Vervolg:
+        Aantal maanden cell straf   :  ${dagencell}
+        Aantal euro boete           : €${Euroboete}
+        
+        Aangetroffen bewijs:
+        
+        Dit proces-verbaal is door mij opgemaakt en afgesloten op ${pvafsluiten}.
+        ${officerName} , werkzaam als ${roepnummer} ${Rang} bij de Eenheid Los Santos op ambtsbelofte.`;
+        
+                    // Plaats de tekst in het Discord-report
+                    document.getElementById('discord-report').textContent = textUnderHTML;
+                    document.getElementById('report-container').style.display = 'block';
+                }
+            </script>
+        </body>
+        </html>
 </html>

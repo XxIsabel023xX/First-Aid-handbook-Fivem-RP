@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>First Aid Handbook - Waarom deze tool?</title>
+    <link rel="stylesheet" type="text/css" href="style2.css">
+    <style>
+        /* Stijl voor de bubbel */
+        .bubble {
+            background-color: #242424;
+            border: 1px solid #ffffff;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 300px;
+            position: relative;
+        }
+
+        /* Stijl voor de naam en roepnummer */
+        .unit-info {
+            font-weight: bold;
+        }
+
+        /* Stijl voor de verwijderknop */
+        .delete-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        select {
+            width: 100%;
+            padding: 5px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="page3.html">PV maker</a></li>
+            <li><a href="page2.html">Waarom deze tool?</a></li>
+            <li><a href="page4.html">Dispatch</a></li>
+            <!-- Voeg hier meer menu-items toe -->
+        </ul>
+    </div>
+    <h1>Dispatch Systeem</h1>
+
+    <!-- Formulier om een eenheid toe te voegen -->
+    <div class="bubble" id="unit-form">
+        <h2>Voeg Eenheid Toe</h2>
+        <div class="input-field">
+            <label for="name">Naam:</label>
+            <input type="text" id="name">
+        </div>
+        <div class="input-field">
+            <label for="badge">Roepnummer:</label>
+            <input type="text" id="badge">
+        </div>
+        <button onclick="addUnit()">Toevoegen</button>
+    </div>
+
+    <!-- Lijst van eenheden -->
+    <div id="unit-list">
+        <!-- Hier worden de toegevoegde eenheden weergegeven -->
+    </div>
+
+    <script>
+        // Simpele JavaScript-functie om een eenheid toe te voegen
+        function addUnit() {
+            var name = document.getElementById('name').value;
+            var badge = document.getElementById('badge').value;
+            var unitList = document.getElementById('unit-list');
+            
+            // Maak een nieuwe bubble-container voor de eenheid
+            var unitBubble = document.createElement('div');
+            unitBubble.classList.add('bubble');
+            
+            // Voeg de naam en roepnummer toe aan de container
+            var unitInfo = document.createElement('div');
+            unitInfo.classList.add('unit-info');
+            unitInfo.textContent = `Naam: ${name} ${badge}`;
+            unitBubble.appendChild(unitInfo);
+
+            // Voeg de dropdown voor de status toe aan de container
+            var statusDropdown = document.createElement('select');
+            statusDropdown.classList.add('status-dropdown');
+            statusDropdown.innerHTML = `
+                <option value="Beschikbaar">Beschikbaar</option>
+                <option value="Onderweg">Onderweg</option>
+                <option value="Niet beschikbaar">Niet beschikbaar</option>
+            `;
+            unitBubble.appendChild(statusDropdown);
+            
+            // Voeg de verwijderknop toe
+            var deleteButton = document.createElement('button');
+            deleteButton.classList.add('delete-button');
+            deleteButton.textContent = 'X';
+            deleteButton.addEventListener('click', function () {
+                unitList.removeChild(unitBubble);
+            });
+            unitBubble.appendChild(deleteButton);
+            
+            // Voeg de container toe aan de lijst
+            unitList.appendChild(unitBubble);
+
+            // Wis de invoervelden na toevoegen
+            document.getElementById('name').value = '';
+            document.getElementById('badge').value = '';
+        }
+    </script>
+
+        
+</body>
+</html>
