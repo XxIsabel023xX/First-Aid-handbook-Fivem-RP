@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wetten Zoeken</title>
+    <style>
+        /* CSS-stijlen van de gegeven CSS */
+        .navbar {
+            background-color: #1f1f1f;
+            padding: 10px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar li {
+            margin-right: 10px;
+        }
+
+        .navbar a {
+            display: block;
+            text-decoration: none;
+            color: #ffffff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .content {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        body {
+            background-color: #1f1f1f;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group textarea {
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            resize: vertical;
+            background-color: #36393F;
+            color: #FFFFFF;
+        }
+
+        .button-container {
+            text-align: center;
+        }
+
+        .discord-report {
+            background-color: #36393F;
+            color: #FFFFFF;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+
+        /* Voeg de bubbelstijl toe */
+        .bubble {
+            background-color: #3f3f3f;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 300px;
+        }
+
+        /* Voeg stijlen toe voor kopjes */
+        .bubble h3 {
+            font-size: 16px;
+            margin-top: 0;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Selecteer een Wet</h1>
+    <select id="law-select">
+        <option value="opiumwet">Opiumwet</option>
+        <option value="wet-wapens-munitie">Wet Wapens en Munitie</option>
+        <!-- Voeg meer wetten toe aan de lijst -->
+    </select>
+    <button onclick="getLawDetails()">Toon Informatie</button>
+
+    <h2>Wet Informatie</h2>
+    <div id="law-info">
+        <!-- Hier wordt de wetinformatie weergegeven -->
+    </div>
+
+
+    <script>
+        // Definieer wetten, hun beschrijvingen en straffen
+        var laws = {
+            "opiumwet": {
+                description: "Regelgeving inzake verdovende middelen",
+            },
+            "wet-wapens-munitie": {
+                description: "Regels omtrent wapens en munitie",
+            }
+            // Voeg meer wetten toe met beschrijvingen en straffen
+        };
+
+        function getLawDetails() {
+            var select = document.getElementById('law-select');
+            var selectedLaw = select.options[select.selectedIndex].value;
+            var lawInfo = document.getElementById('law-info');
+            var penaltiesDiv = document.getElementById('penalties');
+
+            // Controleer of de geselecteerde wet in de lijst staat
+            if (laws[selectedLaw]) {
+                var selectedLawDetails = laws[selectedLaw];
+                lawInfo.innerHTML = `<div class="bubble"><h3>Artikel + Wetgeving: ${selectedLaw}</h3><p>${selectedLawDetails.description}</p></div>`;
+                
+                // Wis de huidige straffenlijst
+                penaltiesDiv.innerHTML = '';
+
+                // Voeg straffen toe aan de lijst
+                if (selectedLawDetails.penalties && selectedLawDetails.penalties.length > 0) {
+                    penaltiesDiv.innerHTML = '';
+                    for (var i = 0; i < selectedLawDetails.penalties.length; i++) {
+                        var penaltyItem = document.createElement('div');
+                        penaltyItem.classList.add('bubble');
+                        penaltyItem.innerHTML = `<p>${selectedLawDetails.penalties[i]}</p>`;
+                        penaltiesDiv.appendChild(penaltyItem);
+                    }
+                }
+            } else {
+                lawInfo.textContent = "Geen informatie beschikbaar.";
+                penaltiesDiv.innerHTML = '';
+            }
+        }
+    </script>
+    
+    
+</body>
+</html>
