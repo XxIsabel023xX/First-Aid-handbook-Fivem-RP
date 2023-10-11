@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dispatch Systeem</title>
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="page3.html">PV maker</a></li>
+            <li><a href="page4.html">Dispatch</a></li>
+            <li><a href="OC.html">Meldkamer melding Systeem</a></li>
+            <li><a href="page2.html">Waarom deze tool?</a></li>
+            <!-- Voeg hier meer menu-items toe -->
+        </ul>
+    </div>
+    
+    <style>
+            .navbar {
+                background-color: #1f1f1f;
+                padding: 10px;
+            }
+
+            .navbar ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+            }
+
+            .navbar li {
+                margin-right: 10px;
+            }
+
+            .navbar a {
+                display: block;
+                text-decoration: none;
+                color: #ffffff;
+                padding: 10px 15px;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+
+            .navbar a:hover {
+                background-color: #333;
+                color: #fff;
+            }
+
+        body {
+            background-color: #1f1f1f;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Stijl voor de bubbel */
+        .bubble {
+            background-color: #242424;
+            border: 1px solid #ffffff;
+            border-radius: 10px;
+            padding: 10px;
+            width: 300px;
+            position: relative;
+        }
+
+        /* Stijl voor de naam en roepnummer */
+        .unit-info {
+            font-weight: bold;
+        }
+
+        /* Stijl voor de verwijderknop */
+        .delete-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        /* Stijl voor de "Safe" knop */
+        .safe-button {
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        select {
+            width: 100%;
+            padding: 5px;
+        }
+
+        .form-group textarea {
+            width: calc(100% - 22px);
+            height: 100px;
+        }
+
+        /* Stijl voor de lijst van meldingen */
+        #report-list {
+            display: grid;
+            flex-wrap: wrap;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Kolommen met een minimum breedte van 320px */
+            gap: 10px; /* Ruimte tussen de meldingen */
+        }
+    </style>
+</head>
+<body>
+    <h1>Meldkamer</h1>
+
+    <!-- Formulier voor melding -->
+    <div class="bubble" id="report-form">
+        <h2>Melding</h2>
+        <div class="form-group">
+            <label for="report-title">Titel:</label>
+            <input type="text" id="report-title">
+        </div>
+        <div class="form-group">
+            <label for="report-units">Eenheden:</label>
+            <input type="text" id="report-units">
+        </div>
+        <div class="form-group">
+            <label for="porto-channel">Portokanaal:</label>
+            <select id="porto-channel">
+                <option value="Porto 1">Porto 1</option>
+                <option value="Porto 2">Porto 2</option>
+                <option value="Porto 3">Porto 3</option>
+                <!-- Voeg hier meer portokanalen toe -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="report-status">Status:</label>
+            <select id="report-status">
+                <option value="Afgehandeld">Afgehandeld</option>
+                <option value="Niet afgehandeld">Niet afgehandeld</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="report-description">Beschrijving:</label>
+            <textarea id="report-description"></textarea>
+        </div>
+        <button class="safe-button" id="save-button" onclick="addReport()">Safe</button>
+    </div>
+
+    <!-- Lijst van meldingen -->
+    <div id="report-list">
+        <!-- Hier worden de meldingen weergegeven -->
+    </div>
+
+    <script>
+        var editingMode = false; // Houdt bij of we in bewerkingsmodus zijn
+
+        // Simpele JavaScript-functie om een melding toe te voegen of bewerken
+        function addReport() {
+            var title = document.getElementById('report-title').value;
+            var description = document.getElementById('report-description').value;
+            var units = document.getElementById('report-units').value;
+            var portoChannel = document.getElementById('porto-channel').value;
+            var status = document.getElementById('report-status').value;
+            var reportList = document.getElementById('report-list');
+            var saveButton = document.getElementById('save-button');
+
+            if (!editingMode) {
+                // Maak een nieuwe bubble-container voor de melding
+                var reportBubble = document.createElement('div');
+                reportBubble.classList.add('bubble');
+
+                // Voeg de titel, eenheden, portokanaal, status en beschrijving toe aan de container
+                var reportInfo = document.createElement('div');
+                reportInfo.classList.add('unit-info');
+                reportInfo.innerHTML = `<h3>Titel:</h3><p>${title}</p><h3>Eenheden:</h3><p>${units}</p><h3>Portokanaal:</h3><p>${portoChannel}</p><h3>Status:</h3><p>${status}</p><h3>Beschrijving:</h3><p>${description}</p>`;
+                reportBubble.appendChild(reportInfo);
+
+                // Voeg de bewerkingsknop toe
+                var editButton = document.createElement('button');
+                editButton.classList.add('safe-button');
+                editButton.textContent = 'Bewerk';
+                editButton.addEventListener('click', function () {
+                    // Laat de bewerkingsmodus weten dat we nu een bestaande melding bewerken
+                    editingMode = true;
+
+                    // Vul de invoervelden met de bestaande gegevens
+                    document.getElementById('report-title').value = title;
+                    document.getElementById('report-units').value = units;
+                    document.getElementById('porto-channel').value = portoChannel;
+                    document.getElementById('report-status').value = status;
+                    document.getElementById('report-description').value = description;
+
+                    // Verander de tekst van de "Safe" knop naar "Bewaar bewerkingen"
+                    saveButton.textContent = 'Bewaar bewerkingen';
+
+                    // Markeer de bewerkingsmodus en onthoud welke melding wordt bewerkt
+                    reportBubble.setAttribute('id', 'editing-report-bubble');
+                });
+                reportBubble.appendChild(editButton);
+
+                // Voeg de verwijderknop toe
+                var deleteButton = document.createElement('button');
+                deleteButton.classList.add('delete-button');
+                deleteButton.textContent = 'X';
+                deleteButton.addEventListener('click', function () {
+                    // Verwijder de melding uit de lijst
+                    reportList.removeChild(reportBubble);
+                });
+                reportBubble.appendChild(deleteButton);
+
+                // Voeg de container toe aan de lijst
+                reportList.appendChild(reportBubble);
+            } else {
+                // We bevinden ons in de bewerkingsmodus, dus bewaar de bewerkingen
+                var editingReportBubble = document.getElementById('editing-report-bubble');
+                var reportInfo = editingReportBubble.querySelector('.unit-info');
+                reportInfo.innerHTML = `<h3>Titel:</h3><p>${title}</p><h3>Eenheden:</h3><p>${units}</p><h3>Portokanaal:</h3><p>${portoChannel}</p><h3>Status:</h3><p>${status}</p><h3>Beschrijving:</h3><p>${description}</p>`;
+
+                // Verander de tekst van de "Safe" knop terug naar "Safe" en verlaat de bewerkingsmodus
+                saveButton.textContent = 'Safe';
+                editingMode = false;
+                editingReportBubble.removeAttribute('id');
+            }
+
+            // Wis de invoervelden na toevoegen of bewerken
+            document.getElementById('report-title').value = '';
+            document.getElementById('report-units').value = '';
+            document.getElementById('porto-channel').value = 'Porto 1'; // Terugzetten naar standaardwaarde
+            document.getElementById('report-status').value = 'Afgehandeld'; // Terugzetten naar standaardwaarde
+            document.getElementById('report-description').value = '';
+        }
+    </script>
+</body>
+</html>
